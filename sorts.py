@@ -19,11 +19,10 @@ http://www.geeksforgeeks.org/time-complexity-insertion-sort-inversions/
 
 If we take a closer look at the insertion sort code, we can notice that every iteration of while loop
 reduces one inversion.
-The while loop executes only if i > j and arr[i] < arr[j]. Therefore total number of while loop iterations
-(For all values of i) is same as number of inversions.
-Therefore overall time complexity of the insertion sort is O(n + f(n)) where f(n) is inversion count. If the inversion count is O(n), then the time complexity
-of insertion sort is O(n). In worst case, there can be n*(n-1)/2 inversions. The worst case occurs
-when the array is sorted in reverse order.
+The while loop executes only if i > j and arr[i] < arr[j]. Therefore total number of while loop iterations (For all values of i) is same as number of inversions.
+Therefore overall time complexity of the insertion sort is O(n + f(n)) where f(n) is inversion count.
+If the inversion count is O(n), then the time complexityof insertion sort is O(n).
+In worst case, there can be n*(n-1)/2 inversions. The worst case occurs when the array is sorted in reverse order.
 So the worst case time complexity of insertion sort is O(n2).
 """
 #Code in Python :
@@ -38,7 +37,45 @@ print k
 
 """
 2.--------------------Bubble Sort------------------------------
+Pseudocode:
+procedure bubbleSort( list : array of items )
 
+   loop = list.count;
 
+   for i = 0 to loop-1 do:
+      swapped = false
 
+      for j = 0 to loop-1 do:
+
+         /* compare the adjacent elements */
+         if list[j] > list[j+1] then
+            /* swap them */
+            swap( list[j], list[j+1] )
+            swapped = true
+         end if
+
+      end for
+
+      /*if no number was swapped that means
+      array is sorted now, break the loop.*/
+
+      if(not swapped) then
+         break
+      end if
+
+   end for
+
+end procedure return list
+
+More at - https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm
 """
+#Python Code
+k=[2,3,5,90,3,1,0,456,23,24,5,1,13]
+
+for i in range(len(k)):
+    print i
+    for j in range(len(k)-1,i,-1):
+        if k[j-1]>k[j]:
+            k[j-1],k[j]=k[j],k[j-1]
+        print "--",j
+print k
