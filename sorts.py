@@ -35,6 +35,10 @@ for i in range (1,len(k)):
     #print k
 print k
 
+
+
+
+
 """
 2.--------------------Bubble Sort------------------------------
 Pseudocode:
@@ -79,3 +83,11 @@ for i in range(len(k)):
             k[j-1],k[j]=k[j],k[j-1]
         print "--",j
 print k
+
+
+
+
+"""
+3.------------------------------Selectin Sort-------------------------
+"""
+
