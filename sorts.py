@@ -11,6 +11,7 @@
 
 """
 1.--------------------Insertion Sort----------------------------
+Key To Remember - Left of array is sorted and INSERTing to that array.
 Psudo Code With Animation:
 https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort-pseudocode
 
@@ -41,6 +42,7 @@ print k
 
 """
 2.--------------------Bubble Sort------------------------------
+Key To Remember : Bubble up values as air bubbles in water.
 Pseudocode:
 procedure bubbleSort( list : array of items )
 
@@ -89,5 +91,23 @@ print k
 
 """
 3.------------------------------Selectin Sort-------------------------
+Key To Remember:SELECT and insert to right position
+
+The selection sort improves on the bubble sort by making only one exchange for every pass through the list. In order to do this,
+a selection sort looks for the largest value as it makes a pass and, after completing the pass, places it in the proper location.
 """
+
+#Python Code
+
+k=[2,3,5,90,3,1,0,456,23,24,5,1,13]
+
+for j in range(1,len(k)-1,1):
+    max_index=0
+    max=k[0]
+    for i in range(len(k)-j):
+       if k[i]>max:
+           max_index =i
+           max=k[i]
+    k[len(k)-j],k[max_index]=k[max_index],k[len(k)-j]
+print k
 
