@@ -111,3 +111,63 @@ for j in range(1,len(k)-1,1):
     k[len(k)-j],k[max_index]=k[max_index],k[len(k)-j]
 print k
 
+
+
+"""
+4.------------------------------Merge Sort-------------------------
+Key To Remember : Sorting happens while MERGING.
+
+"""
+
+def merge(left,right):
+    print "merging ,left->{0} right->{1}".format(left,right)
+    i=0
+    j=0
+    out =[]
+    while i<len(left) or j < len(right):
+
+       if left[i]<right[j]:
+           out.append(left[i])
+           i=i+1
+       else :
+           out.append(right[j])
+           j=j+1
+
+       if j>=len(right):
+            out.extend(left[i:])
+            break
+       if i >= len(left):
+           out.extend(right[j:])
+           break
+    return out
+
+
+def merge_sort(list):
+    print "\n\nlist->",list
+
+    if len(list) > 1:
+        mid = len(list)/2
+        left = list[:mid]
+        right=list[mid:]
+
+        print "left->", left
+        print "right->", right
+
+        outl=merge_sort(left)
+        outr=merge_sort(right)
+
+        return merge(outl,outr)
+    else:
+        return list
+
+d=[23,1,2,45,3,9,34,0,21]
+
+f=merge_sort(d)
+print  f
+
+
+"""
+5.------------------------------Quick Sort-------------------------
+Key To Remember :
+
+"""
