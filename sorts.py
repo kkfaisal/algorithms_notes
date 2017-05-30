@@ -172,27 +172,28 @@ Key To Remember :
 
 """
 
-def partition(array, begin, end):
-    pivot = begin
-    for i in range(begin+1, end+1):
-        if array[i] <= array[begin]:
-            pivot += 1
-            array[i], array[pivot] = array[pivot], array[i]
-    array[pivot], array[begin] = array[begin], array[pivot]
+def partition(ls,l,h):
+    pivot=l
+    for i in range (l+1,h+1):
+        if ls[i] <= ls[l] :
+           pivot=pivot+1
+           ls[i],ls[pivot]=ls[pivot],ls[i]
+    ls[pivot],ls[l]=ls[l],ls[pivot]
     return pivot
 
 
-def quicksort(array, begin=0, end=None):
-    if end is None:
-        end = len(array) - 1
-    def _quicksort(array, begin, end):
-        if begin >= end:
-            return
-        pivot = partition(array, begin, end)
-        _quicksort(array, begin, pivot-1)
-        _quicksort(array, pivot+1, end)
-    return _quicksort(array, begin, end)
+def qsort(lsit,l,h):
+    print l,h
+    if l<h:
+        print "called",l,h
+        p=partition(lsit,l,h)
+        qsort(lsit,l,p-1)
+        qsort(lsit,p+1,h)
+    else :
+        return
 
-array = [70, 20, 150, 11, 21, 17]
-quicksort(array)
-print array
+
+a=[4,1,2,5,0,43,21,12,42,3]
+
+qsort(a,0,len(a)-1)
+print a
